@@ -82,9 +82,25 @@ def binarySearch(nums,target):
             left = pivot + 1
     print('Not in Array')
 
+def numSquare(x):
+        left = 0
+        right = x // 2
+        while left <= right:
+            pivot = left + (right-left) // 2
+            if pivot * pivot == x:
+                print(pivot)
+                return pivot
+            if pivot * pivot > x:
+                right = pivot - 1
+            elif pivot * pivot < x:
+                left = pivot + 1
+        print(right)
+        return right
+
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
 #removeElement([0,1,2,2,3,0,4,2],2)
 #removeElementDupes([0,0,1,1,1,2,2,3,3,4])
-binarySearch([-1,0,3,5,9,12],9)
+#binarySearch([-1,0,3,5,9,12],9)
+numSquare(500)
