@@ -34,7 +34,20 @@ def mergeArrays(nums1,nums2):
                     break
     nums1.sort()
 
-
+def removeElement(nums,val):
+    k = 0
+    for x in range(len(nums)-1,-1,-1):
+        if x == len(nums)-1:
+            if nums[x] == val:
+                continue
+            else:
+                k += 1
+        elif nums[x] == val:
+            nums.append(nums[x])
+            nums.remove(nums[x])
+        else:
+            k += 1
+    print(k)
 
 
 
@@ -42,4 +55,5 @@ def mergeArrays(nums1,nums2):
 
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
-mergeArrays([1,2,3,0,0,0],[2,5,6,7])
+#mergeArrays([1,2,3,0,0,0],[2,5,6,7])
+removeElement([0,1,2,2,3,0,4,2],2)
