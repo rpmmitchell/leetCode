@@ -68,12 +68,23 @@ def removeElementDupes(nums):
             continue
     return len(duped_values)
 
-
-
-
+def binarySearch(nums,target):
+    left = 0
+    right = len(nums) -1
+    while left <= right:
+        pivot = left + (right - left) // 2
+        if nums[pivot] == target:
+            print(pivot)
+            return pivot
+        elif target < nums[pivot]:
+            right = pivot -1
+        else:
+            left = pivot + 1
+    print('Not in Array')
 
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
 #removeElement([0,1,2,2,3,0,4,2],2)
-removeElementDupes([0,0,1,1,1,2,2,3,3,4])
+#removeElementDupes([0,0,1,1,1,2,2,3,3,4])
+binarySearch([-1,0,3,5,9,12],9)
