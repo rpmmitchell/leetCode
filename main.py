@@ -1,3 +1,6 @@
+import math
+
+
 def dupZeros(arr):
     possible_dups = 0
     array_length = len(arr) - 1
@@ -97,10 +100,47 @@ def numSquare(x):
         print(right)
         return right
 
+def nonSortedBinary(nums,target):
+    rotation_index = 0
+    for x in range(0,len(nums)):
+        if x == len(nums) - 1:
+            break
+        if nums[x] > nums[x+1]:
+            rotation_index = x + 1
+        else:
+            continue
+    #left side check
+    left = 0
+    right = rotation_index - 1
+    while left <= right:
+        pivot = left + (right - left) // 2
+        if nums[pivot] == target:
+            print(pivot)
+            return pivot
+        elif nums[pivot] < target:
+            left = pivot + 1
+        elif nums[pivot] > target:
+            right = pivot -1
+    # right side check
+    left = rotation_index
+    right = len(nums)-1
+    while left <= right:
+        pivot = left + (right - left) // 2
+        if nums[pivot] == target:
+            print(pivot)
+            return pivot
+        elif nums[pivot] < target:
+            left = pivot + 1
+        elif nums[pivot] > target:
+            right = pivot - 1
+    print('not in array')
+    return -1
+
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
 #removeElement([0,1,2,2,3,0,4,2],2)
 #removeElementDupes([0,0,1,1,1,2,2,3,3,4])
 #binarySearch([-1,0,3,5,9,12],9)
-numSquare(500)
+#numSquare(500)
+nonSortedBinary([4,5,6,7,0,1,2],9)
