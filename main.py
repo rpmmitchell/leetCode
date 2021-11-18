@@ -49,6 +49,25 @@ def removeElement(nums,val):
             k += 1
     print(k)
 
+def removeElementDupes(nums):
+    duped_values = []
+    possible_deletes = 0
+    for outer_value in nums:
+        tester = outer_value in duped_values
+        if not tester:
+            duped_values.append(outer_value)
+            possible_deletes = nums.count(outer_value) -1
+            for x in range(len(nums)-1,-1,-1):
+                if nums[x] == outer_value and possible_deletes > 0:
+                    nums.append(nums[x])
+                    nums.remove(nums[x])
+                    possible_deletes -= 1
+                else:
+                    continue
+        else:
+            continue
+    return len(duped_values)
+
 
 
 
@@ -56,4 +75,5 @@ def removeElement(nums,val):
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
-removeElement([0,1,2,2,3,0,4,2],2)
+#removeElement([0,1,2,2,3,0,4,2],2)
+removeElementDupes([0,0,1,1,1,2,2,3,3,4])
