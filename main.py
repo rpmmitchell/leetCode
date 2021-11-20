@@ -147,33 +147,24 @@ def checkDoubleExist(nums):
     print('false')
 
 def mountainArray(nums):
-    max_num = max(nums)
-    max_trigger = False
-    if len(nums) <= 2:
-        print("Not a mountain array")
+    nums_length = len(nums)
+    i = 0
+    if nums_length <= 2:
+        print('not mountain array')
         return False
-    for x in range(0, len(nums)):
-        if nums[x] == max_num:
-            max_cord = x
-        else:
-            continue
-    for x in range(0,len(nums)-1):
-        if x == max_cord and max_trigger == False:
-            max_trigger = True
-            continue
-        elif max_trigger == False:
-            if nums[x] >= nums[x+1]:
-                print('not a mountain array')
-                return False
-        else:
-            if nums[x] <= nums[x+1]:
-                print('not a mountain array')
-                return False
-    if max_trigger == True and max_cord != 0:
-        print('This is a moutain array')
+    while i+1 < nums_length and nums[i] < nums[i + 1]:
+        i += 1
+    if i == 0 or i == nums_length -1:
+        print('not mountain array')
+        return False
+    while i +1 < nums_length and nums[i] > nums[i + 1]:
+        i += 1
+
+    if i == nums_length -1:
+        print('This is a mountain array')
         return True
     else:
-        print('This is not a mountain array')
+        print('not a mountain array')
         return False
 
 
