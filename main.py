@@ -136,6 +136,18 @@ def nonSortedBinary(nums,target):
     print('not in array')
     return -1
 
+def checkDoubleExist(nums):
+    for x in nums:
+        for y in nums:
+            if x * 2 == y:
+                print('true')
+                return True
+            else:
+                continue
+    print('false')
+
+
+
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
@@ -143,4 +155,5 @@ def nonSortedBinary(nums,target):
 #removeElementDupes([0,0,1,1,1,2,2,3,3,4])
 #binarySearch([-1,0,3,5,9,12],9)
 #numSquare(500)
-nonSortedBinary([4,5,6,7,0,1,2],9)
+#nonSortedBinary([4,5,6,7,0,1,2],9)
+checkDoubleExist([-2,0,10,-19,4,6,-8])
