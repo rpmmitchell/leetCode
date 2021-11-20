@@ -146,7 +146,35 @@ def checkDoubleExist(nums):
                 continue
     print('false')
 
-
+def mountainArray(nums):
+    max_num = max(nums)
+    max_trigger = False
+    if len(nums) <= 2:
+        print("Not a mountain array")
+        return False
+    for x in range(0, len(nums)):
+        if nums[x] == max_num:
+            max_cord = x
+        else:
+            continue
+    for x in range(0,len(nums)-1):
+        if x == max_cord and max_trigger == False:
+            max_trigger = True
+            continue
+        elif max_trigger == False:
+            if nums[x] >= nums[x+1]:
+                print('not a mountain array')
+                return False
+        else:
+            if nums[x] <= nums[x+1]:
+                print('not a mountain array')
+                return False
+    if max_trigger == True and max_cord != 0:
+        print('This is a moutain array')
+        return True
+    else:
+        print('This is not a mountain array')
+        return False
 
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
@@ -156,4 +184,5 @@ def checkDoubleExist(nums):
 #binarySearch([-1,0,3,5,9,12],9)
 #numSquare(500)
 #nonSortedBinary([4,5,6,7,0,1,2],9)
-checkDoubleExist([-2,0,10,-19,4,6,-8])
+#checkDoubleExist([-2,0,10,-19,4,6,-8])
+mountainArray([3,2,1,0])
