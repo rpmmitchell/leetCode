@@ -169,21 +169,10 @@ def mountainArray(nums):
 
 def replaceGreatest(arr):
     #this is close, get the value that was just transformed to not be in the conversion. Make sure stopper is working properly
-    stopper = 0
-    for x in range(0,len(arr)):
-        greatest_val = 0
-        for y in range(len(arr)-1,-1,-1):
-            if y > stopper:
-                if arr[y] > greatest_val:
-                    greatest_val = arr[y]
-                else:
-                    continue
-            else:
-                break
-        arr[x] = greatest_val
-        stopper += 1
-    arr[-1] = -1
-    print(arr)
+    mx = -1
+    for i in range(len(arr) - 1, -1, -1):
+        arr[i], mx = mx, max(arr[i], mx)
+    return arr
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
