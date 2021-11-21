@@ -167,6 +167,23 @@ def mountainArray(nums):
         print('not a mountain array')
         return False
 
+def replaceGreatest(arr):
+    #this is close, get the value that was just transformed to not be in the conversion. Make sure stopper is working properly
+    stopper = 0
+    for x in range(0,len(arr)):
+        greatest_val = 0
+        for y in range(len(arr)-1,-1,-1):
+            if y > stopper:
+                if arr[y] > greatest_val:
+                    greatest_val = arr[y]
+                else:
+                    continue
+            else:
+                break
+        arr[x] = greatest_val
+        stopper += 1
+    arr[-1] = -1
+    print(arr)
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
@@ -176,4 +193,5 @@ def mountainArray(nums):
 #numSquare(500)
 #nonSortedBinary([4,5,6,7,0,1,2],9)
 #checkDoubleExist([-2,0,10,-19,4,6,-8])
-mountainArray([3,2,1,0])
+#mountainArray([3,2,1,0])
+replaceGreatest([17,18,5,4,6,1])
