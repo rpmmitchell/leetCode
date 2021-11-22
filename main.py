@@ -183,6 +183,14 @@ def moveZeroes(nums):
             reading_pointer += 1
     print(nums)
 
+def sortByEven(nums):
+    slow = 0
+    for x in range(len(nums)):
+        if nums[x] % 2 == 0 and nums[slow] % 2 != 0:
+            nums[x], nums[slow] = nums[slow], nums[x]
+        if nums[slow] % 2 == 0:
+            slow += 1
+    print(nums)
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
@@ -195,4 +203,5 @@ def moveZeroes(nums):
 #mountainArray([3,2,1,0])
 #revist below, doing some cool assignments in python that I do not fully get right now
 #replaceGreatest([17,18,5,4,6,1])
-moveZeroes([0,1,0,3,12])
+#moveZeroes([0,1,0,3,12])
+sortByEven([3,1,2,4])
