@@ -168,11 +168,21 @@ def mountainArray(nums):
         return False
 
 def replaceGreatest(arr):
-    #this is close, get the value that was just transformed to not be in the conversion. Make sure stopper is working properly
+
     mx = -1
     for i in range(len(arr) - 1, -1, -1):
         arr[i], mx = mx, max(arr[i], mx)
     return arr
+
+def moveZeroes(nums):
+    for x in range(len(nums)-1,-1,-1):
+        if nums[x] == 0:
+            nums.append(nums[x])
+            del nums[x]
+        else:
+            continue
+    return nums
+
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
@@ -183,4 +193,6 @@ def replaceGreatest(arr):
 #nonSortedBinary([4,5,6,7,0,1,2],9)
 #checkDoubleExist([-2,0,10,-19,4,6,-8])
 #mountainArray([3,2,1,0])
-replaceGreatest([17,18,5,4,6,1])
+#revist below, doing some cool assignments in python that I do not fully get right now
+#replaceGreatest([17,18,5,4,6,1])
+moveZeroes([0,1,0,3,12])
