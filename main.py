@@ -175,13 +175,13 @@ def replaceGreatest(arr):
     return arr
 
 def moveZeroes(nums):
-    for x in range(len(nums)-1,-1,-1):
-        if nums[x] == 0:
-            nums.append(nums[x])
-            del nums[x]
-        else:
-            continue
-    return nums
+    reading_pointer = 0
+    for x in range(len(nums)):
+        if nums[x] != 0 and nums[reading_pointer] == 0:
+            nums[reading_pointer], nums[x] = nums[x], nums[reading_pointer]
+        if nums[reading_pointer] != 0:
+            reading_pointer += 1
+    print(nums)
 
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
