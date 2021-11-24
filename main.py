@@ -232,6 +232,13 @@ def containsDupe(nums):
             continue
     return False
 
+def maxSubArray(nums):
+    for i in range(1, len(nums)):
+        if nums[i - 1] > 0:
+            nums[i] += nums[i - 1]
+    return max(nums)
+
+
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
 #removeElement([0,1,2,2,3,0,4,2],2)
@@ -247,5 +254,6 @@ def containsDupe(nums):
 #sortByEven([3,1,2,4])
 #heightChecker([1,1,4,2,1,3])
 #searchInsert([1,3],2)
+#containsDupe([2,14,18,22,22])
 
-containsDupe([2,14,18,22,22])
+maxSubArray([-2,1,-3,4,-1,2,1,-5,4])
