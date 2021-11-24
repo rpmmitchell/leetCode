@@ -192,6 +192,37 @@ def sortByEven(nums):
             slow += 1
     print(nums)
 
+def heightChecker(heights):
+    off_index = 0
+    expected = []
+    for x in range(len(heights)):
+        if heights[x] != expected[x]:
+            off_index += 1
+        else:
+            continue
+    return off_index
+
+def searchInsert(nums,target):
+    start = 0
+    end = len(nums) -1
+    while start <= end:
+        pivot = start + (end - start) // 2
+        if nums[pivot] == target:
+            print(pivot)
+            return pivot
+        elif nums[pivot] < target:
+            start = pivot + 1
+        else:
+            end = pivot -1
+    if target > nums[pivot]:
+        print(pivot+1)
+        return pivot + 1
+    elif pivot == 0:
+        return 0
+    else:
+        print(pivot)
+        return pivot
+
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
 #removeElement([0,1,2,2,3,0,4,2],2)
@@ -204,4 +235,7 @@ def sortByEven(nums):
 #revist below, doing some cool assignments in python that I do not fully get right now
 #replaceGreatest([17,18,5,4,6,1])
 #moveZeroes([0,1,0,3,12])
-sortByEven([3,1,2,4])
+#sortByEven([3,1,2,4])
+#heightChecker([1,1,4,2,1,3])
+
+searchInsert([1,3],2)
