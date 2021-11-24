@@ -223,6 +223,15 @@ def searchInsert(nums,target):
         print(pivot)
         return pivot
 
+def containsDupe(nums):
+    nums.sort()
+    for x in range(0, len(nums) - 1):
+        if nums[x] == nums[x + 1]:
+            return True
+        else:
+            continue
+    return False
+
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
 #removeElement([0,1,2,2,3,0,4,2],2)
@@ -237,5 +246,6 @@ def searchInsert(nums,target):
 #moveZeroes([0,1,0,3,12])
 #sortByEven([3,1,2,4])
 #heightChecker([1,1,4,2,1,3])
+#searchInsert([1,3],2)
 
-searchInsert([1,3],2)
+containsDupe([2,14,18,22,22])
