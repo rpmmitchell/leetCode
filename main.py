@@ -238,6 +238,16 @@ def maxSubArray(nums):
             nums[i] += nums[i - 1]
     return max(nums)
 
+#see if I can get the below not O(n^2)
+def twoSum(nums,target):
+    for x in range(0,len(nums)):
+        for y in range(x+1,len(nums)):
+            if nums[x] + nums[y] == target:
+                print(x,y)
+                return [x,y]
+            else:
+                continue
+
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
@@ -255,5 +265,6 @@ def maxSubArray(nums):
 #heightChecker([1,1,4,2,1,3])
 #searchInsert([1,3],2)
 #containsDupe([2,14,18,22,22])
+#maxSubArray([-2,1,-3,4,-1,2,1,-5,4])
 
-maxSubArray([-2,1,-3,4,-1,2,1,-5,4])
+twoSum([3,2,4],6)
