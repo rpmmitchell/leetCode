@@ -248,7 +248,19 @@ def twoSum(nums,target):
             else:
                 continue
 
+def squareAndSort(nums):
+    for x in range(0,len(nums)):
+        nums[x] = nums[x] * nums[x]
+    nums.sort()
+    print(nums)
+    return nums
 
+def rotateArray(nums,k):
+    k %= len(nums)
+    nums.sort(reverse=True)
+    nums[0:k] = sorted(nums[0:k])
+    nums[k:len(nums)] = sorted(nums[k:len(nums)])
+    print(nums)
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
 #removeElement([0,1,2,2,3,0,4,2],2)
@@ -267,4 +279,6 @@ def twoSum(nums,target):
 #containsDupe([2,14,18,22,22])
 #maxSubArray([-2,1,-3,4,-1,2,1,-5,4])
 
-twoSum([3,2,4],6)
+#twoSum([3,2,4],6)
+#squareAndSort([-4,-1,0,3,10])
+rotateArray([-1,-100,3,99],2)
