@@ -256,11 +256,20 @@ def squareAndSort(nums):
     return nums
 
 def rotateArray(nums,k):
-    k %= len(nums)
-    nums.sort(reverse=True)
-    nums[0:k] = sorted(nums[0:k])
-    nums[k:len(nums)] = sorted(nums[k:len(nums)])
+    rotateArrayReverse(nums,0,len(nums)-1)
+    rotateArrayReverse(nums,0,k-1)
+    rotateArrayReverse(nums,k,len(nums)-1)
+    #rotateArrayReverse()
     print(nums)
+
+def rotateArrayReverse(nums,start,end):
+    while start < end:
+        temp = nums[start]
+        nums[start] = nums[end]
+        nums[end] = temp
+        start += 1
+        end -= 1
+
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
 #removeElement([0,1,2,2,3,0,4,2],2)
