@@ -238,7 +238,6 @@ def maxSubArray(nums):
             nums[i] += nums[i - 1]
     return max(nums)
 
-#see if I can get the below not O(n^2)
 def twoSum(nums,target):
     right_pointer = len(nums) -1
     left_pointer = 0
@@ -250,7 +249,6 @@ def twoSum(nums,target):
             left_pointer += 1
         elif nums[left_pointer] + nums[right_pointer] > target:
             right_pointer -= 1
-
 
 def squareAndSort(nums):
     for x in range(0,len(nums)):
@@ -264,6 +262,22 @@ def rotateArray(nums,k):
     k = k % n
     nums[:] = nums[n - k:] + nums[:n - k]
     print(nums)
+
+def arrayIntersection(nums1,nums2):
+    nums1_length = len(nums1)
+    nums2_length = len(nums2)
+    intersects = []
+    if nums2_length <= nums1_length:
+        for x in range(0,nums2_length):
+            if nums2[x] in nums1:
+                intersects.append(nums2[x])
+                nums1.remove(nums2[x])
+    else:
+        for x in range(0,nums1_length):
+            if nums1[x] in nums2:
+                intersects.append(nums1[x])
+                nums2.remove(nums1[x])
+    print(intersects)
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
@@ -282,6 +296,7 @@ def rotateArray(nums,k):
 #searchInsert([1,3],2)
 #containsDupe([2,14,18,22,22])
 #maxSubArray([-2,1,-3,4,-1,2,1,-5,4])
-twoSum([2,7,11,15],9)
+#twoSum([2,7,11,15],9)
 #squareAndSort([-4,-1,0,3,10])
 #rotateArray([-1,2,3,4,1,0], 5)
+arrayIntersection([1,2,2,1],[2,2])
