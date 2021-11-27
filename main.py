@@ -240,13 +240,17 @@ def maxSubArray(nums):
 
 #see if I can get the below not O(n^2)
 def twoSum(nums,target):
-    for x in range(0,len(nums)):
-        for y in range(x+1,len(nums)):
-            if nums[x] + nums[y] == target:
-                print(x,y)
-                return [x,y]
-            else:
-                continue
+    right_pointer = len(nums) -1
+    left_pointer = 0
+    while True:
+        if nums[right_pointer] + nums[left_pointer] == target:
+            print([left_pointer,right_pointer])
+            return [left_pointer,right_pointer]
+        elif nums[left_pointer] + nums[right_pointer] < target:
+            left_pointer += 1
+        elif nums[left_pointer] + nums[right_pointer] > target:
+            right_pointer -= 1
+
 
 def squareAndSort(nums):
     for x in range(0,len(nums)):
@@ -255,7 +259,6 @@ def squareAndSort(nums):
     print(nums)
     return nums
 
-#ALREADY COMMITED, NEED TO PUSH WHEN I GET INTERNET
 def rotateArray(nums,k):
     n = len(nums)
     k = k % n
@@ -279,8 +282,6 @@ def rotateArray(nums,k):
 #searchInsert([1,3],2)
 #containsDupe([2,14,18,22,22])
 #maxSubArray([-2,1,-3,4,-1,2,1,-5,4])
-
-#twoSum([3,2,4],6)
+twoSum([2,7,11,15],9)
 #squareAndSort([-4,-1,0,3,10])
-#ALREADY COMMITED, NEED TO PUSH WHEN I GET INTERNET
-rotateArray([-1,2,3,4,1,0], 5)
+#rotateArray([-1,2,3,4,1,0], 5)
