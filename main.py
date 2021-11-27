@@ -255,20 +255,12 @@ def squareAndSort(nums):
     print(nums)
     return nums
 
+#ALREADY COMMITED, NEED TO PUSH WHEN I GET INTERNET
 def rotateArray(nums,k):
-    rotateArrayReverse(nums,0,len(nums)-1)
-    rotateArrayReverse(nums,0,k-1)
-    rotateArrayReverse(nums,k,len(nums)-1)
-    #rotateArrayReverse()
+    n = len(nums)
+    k = k % n
+    nums[:] = nums[n - k:] + nums[:n - k]
     print(nums)
-
-def rotateArrayReverse(nums,start,end):
-    while start < end:
-        temp = nums[start]
-        nums[start] = nums[end]
-        nums[end] = temp
-        start += 1
-        end -= 1
 
 #dupZeros([8, 4, 5, 0, 0, 0, 0, 7])
 #mergeArrays([1,2,3,0,0,0],[2,5,6,7])
@@ -290,4 +282,5 @@ def rotateArrayReverse(nums,start,end):
 
 #twoSum([3,2,4],6)
 #squareAndSort([-4,-1,0,3,10])
-rotateArray([-1,-100,3,99],2)
+#ALREADY COMMITED, NEED TO PUSH WHEN I GET INTERNET
+rotateArray([-1,2,3,4,1,0], 5)
